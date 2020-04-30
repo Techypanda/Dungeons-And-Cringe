@@ -1,3 +1,4 @@
+package com.jonathan;
 import java.util.Random;
 import java.lang.Math;
 public abstract class Enemy extends Character {

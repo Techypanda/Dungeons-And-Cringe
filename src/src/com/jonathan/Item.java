@@ -1,3 +1,4 @@
+package com.jonathan;
 public abstract class Item {
     protected String name;
     protected int cost;
@@ -10,10 +11,4 @@ public abstract class Item {
         maxEffect = inMaxEffect;
     }
     public abstract String toString();
-    public int getMin() {
-        return minimumEffect;
-    }
-    public int getMax() {
-        return maxEffect;
-    }
 }

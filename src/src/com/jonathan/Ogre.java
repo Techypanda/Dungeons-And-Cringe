@@ -1,3 +1,4 @@
+package com.jonathan;
 import java.util.Random;
 public class Ogre extends Enemy {
     public Ogre() {

@@ -1,3 +1,4 @@
+package com.jonathan;
 public class Healing extends Item implements Potion {
     public Healing(String inName, int inCost, int inMinEffect, int inMaxEffect) {
         super(inName, inCost, inMinEffect, inMaxEffect);

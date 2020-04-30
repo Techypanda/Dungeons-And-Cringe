@@ -1,3 +1,5 @@
+package com.jonathan;
+
 public abstract class Character {
     protected String name;
     protected int maxHP;

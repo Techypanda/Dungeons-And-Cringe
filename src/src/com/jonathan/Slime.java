@@ -1,3 +1,4 @@
+package com.jonathan;
 import java.util.Random;
 public class Slime extends Enemy {
     public Slime() {

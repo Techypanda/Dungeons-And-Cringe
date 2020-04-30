@@ -1,3 +1,5 @@
+package com.jonathan;
+
 public class CharacterTestHarness {
     public static void main(String[] args) {
         Player player = new Player("A Cool Name", 100, 5);

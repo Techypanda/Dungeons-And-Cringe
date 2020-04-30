@@ -1,3 +1,4 @@
+package com.jonathan;
 public class Harming extends Item implements Potion {
     public Harming(String inName, int inCost, int inMinEffect, int inMaxEffect) {
         super(inName, inCost, inMinEffect, inMaxEffect);
