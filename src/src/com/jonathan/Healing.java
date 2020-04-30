@@ -12,4 +12,8 @@ public class Healing extends Item implements Potion {
         return String.format("%s Healing Potion, Cost: %d, Heal: %d - %d", name, cost,
         minimumEffect, maxEffect);
     }
+    @Override
+    public int compareTo(Item other) { /* Compare By Price. */
+        return Integer.compare(getCost(), other.getCost());
+    }
 }

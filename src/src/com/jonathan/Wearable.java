@@ -1,5 +1,5 @@
 package com.jonathan;
 
-public interface Wearable {
+public interface Wearable extends Comparable<Item> {
     int getStat();
 }

@@ -13,5 +13,7 @@ public abstract class Character {
     }
     public abstract void dealDamage(Character target);
     public abstract void takeDamage(int inDmg);
+    public String getName() {return name;}
     public abstract String toString();
+    public void setName(String inName) {name = inName;}
 }

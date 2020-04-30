@@ -1,5 +1,5 @@
 package com.jonathan;
-public abstract class Item {
+public abstract class Item implements Comparable<Item> {
     protected String name;
     protected int cost;
     protected int minimumEffect;
@@ -11,4 +11,11 @@ public abstract class Item {
         maxEffect = inMaxEffect;
     }
     public abstract String toString();
+    public int getCost() { return cost; }
+    public String getName() { return name; }
+    public int getMax() { return maxEffect; }
+    public int getMin() { return minimumEffect; }
+    public int compareTo(Item other) { /* Compare By Price. */
+        return Integer.compare(getCost(), other.getCost());
+    }
 }
