@@ -1,4 +1,6 @@
-package com.jonathan;
+package com.jonathan.view;
+
+import com.jonathan.model.Player;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

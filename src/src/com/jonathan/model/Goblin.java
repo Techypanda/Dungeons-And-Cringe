@@ -1,4 +1,4 @@
-package com.jonathan;
+package com.jonathan.model;
 import java.util.Random;
 public class Goblin extends Enemy {
     public Goblin() {

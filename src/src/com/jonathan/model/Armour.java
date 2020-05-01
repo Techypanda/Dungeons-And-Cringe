@@ -1,4 +1,4 @@
-package com.jonathan;
+package com.jonathan.model;
 
 import java.util.Random;
 
@@ -14,8 +14,16 @@ public class Armour extends Item implements Wearable {
         minimumEffect, maxEffect);
     }
     @Override
-    public int getStat() {
+    public int getEffect() {
         Random rand = new Random();
         return rand.nextInt((maxEffect - minimumEffect) + 1) + minimumEffect;
+    }
+    @Override
+    public String getEnchantments() {
+        return "";
+    }
+    @Override
+    public void handleEquip(Player p) {
+        p.setArmour(this);
     }
 }

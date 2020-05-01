@@ -1,4 +1,4 @@
-package com.jonathan;
+package com.jonathan.model;
 public abstract class Item implements Comparable<Item> {
     protected String name;
     protected int cost;
@@ -15,6 +15,7 @@ public abstract class Item implements Comparable<Item> {
     public String getName() { return name; }
     public int getMax() { return maxEffect; }
     public int getMin() { return minimumEffect; }
+    public abstract int getEffect();
     public int compareTo(Item other) { /* Compare By Price. */
         return Integer.compare(getCost(), other.getCost());
     }

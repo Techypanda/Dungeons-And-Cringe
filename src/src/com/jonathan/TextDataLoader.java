@@ -1,7 +1,10 @@
 package com.jonathan;
 
+import com.jonathan.model.Armour;
+import com.jonathan.model.Potion;
+import com.jonathan.model.Weapon;
+
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
@@ -30,9 +33,9 @@ public class TextDataLoader extends DataLoader {
                         int max = Integer.parseInt(properties[3].trim());
                         String potionType = properties[5].trim().toUpperCase();
                         if (potionType.equals("H"))
-                            potions.put(potionTitle, new Healing(potionTitle, cost, min, max));
+                            potions.put(potionTitle, new Potion(potionTitle, cost, min, max, 'H'));
                         else if (potionType.equals("D"))
-                            potions.put(potionTitle, new Harming(potionTitle, cost, min, max));
+                            potions.put(potionTitle, new Potion(potionTitle, cost, min, max, 'D'));
                         else
                             throw new DataLoadException(String.format("Unable to understand whether potion is healing or damaging on line: %s, what I read: %s", currLine, potionTitle));
                     } catch(NumberFormatException e) {

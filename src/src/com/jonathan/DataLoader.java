@@ -1,5 +1,9 @@
 package com.jonathan;
 
+import com.jonathan.model.Armour;
+import com.jonathan.model.Potion;
+import com.jonathan.model.Weapon;
+
 import java.util.HashMap;
 
 public abstract class DataLoader { /* Base Class For All Loaders of Data */

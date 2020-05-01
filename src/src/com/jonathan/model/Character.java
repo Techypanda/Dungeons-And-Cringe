@@ -1,4 +1,4 @@
-package com.jonathan;
+package com.jonathan.model;
 
 public abstract class Character {
     protected String name;

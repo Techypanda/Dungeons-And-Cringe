@@ -1,5 +1,9 @@
 package com.jonathan;
 
+import com.jonathan.model.Armour;
+import com.jonathan.model.Potion;
+import com.jonathan.model.Weapon;
+
 import java.util.Arrays;
 import java.util.HashMap;
 

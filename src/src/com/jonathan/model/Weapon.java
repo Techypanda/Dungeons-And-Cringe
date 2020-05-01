@@ -1,4 +1,4 @@
-package com.jonathan;
+package com.jonathan.model;
 
 import java.util.Random;
 
@@ -10,12 +10,20 @@ public class Weapon extends Item implements Wearable  {
     }
     @Override
     public String toString() {
-        return String.format("%s, Damage Type: %s, Cost: %d, Damage: %d - %d", name, type, cost,
+        return String.format("%s, Damage Type: %s, Cost: %d, Damage: %d - %d, Enchantments: ", name, type, cost,
         minimumEffect, maxEffect);
     }
     @Override
-    public int getStat() {
+    public int getEffect() {
         Random rand = new Random();
         return rand.nextInt((maxEffect - minimumEffect) + 1) + minimumEffect;
+    }
+    @Override
+    public String getEnchantments() {
+        return ""; /* The Decorators will append to this. */
+    }
+    @Override
+    public void handleEquip(Player p) {
+        p.setWeapon(this);
     }
 }

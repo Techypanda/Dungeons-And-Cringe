@@ -1,4 +1,4 @@
-package com.jonathan;
+package com.jonathan.model;
 import java.util.Random;
 import java.lang.Math;
 public abstract class Enemy extends Character {

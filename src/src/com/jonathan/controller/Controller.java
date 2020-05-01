@@ -1,6 +1,12 @@
-package com.jonathan;
+package com.jonathan.controller;
 
-public class Controller {
+import com.jonathan.DataLoadException;
+import com.jonathan.DataLoader;
+import com.jonathan.Shop;
+import com.jonathan.view.UserInterface;
+import com.jonathan.model.Player;
+
+/*public class Controller {
     public static void main(String[] args) {
         int response = -1;
         Player player = new Player("The Player", 30, 100);
@@ -11,7 +17,7 @@ public class Controller {
             theShop.updateShop(shopDataLoader);
         } catch (DataLoadException e) {
             UserInterface.error(e);
-            System.exit(1); /* Exit With 1 as error occurred. */
+            System.exit(1);
         }
         player.addItem(theShop.cheapestWeapon());
         player.addItem(theShop.cheapestArmour());
@@ -23,7 +29,7 @@ public class Controller {
             switch (response) {
                 case 1:
                     UserInterface.displayShopPrompt(player.getName(), theShop.describeShop());
-                    /* Do Extra Stuff */
+
                     break;
                 case 2:
                     player.setName(UserInterface.displayNamePrompt());
@@ -41,4 +47,4 @@ public class Controller {
         }
         System.out.println("Ending!");
     }
-}
+}*/

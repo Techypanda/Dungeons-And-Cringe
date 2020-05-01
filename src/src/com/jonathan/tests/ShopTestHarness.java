@@ -1,4 +1,8 @@
-package com.jonathan;
+package com.jonathan.tests;
+
+import com.jonathan.DataLoadException;
+import com.jonathan.DataLoader;
+import com.jonathan.Shop;
 
 public class ShopTestHarness {
     public static void main(String[] args) {
