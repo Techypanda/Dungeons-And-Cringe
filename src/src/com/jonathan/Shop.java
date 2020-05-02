@@ -2,7 +2,7 @@ package com.jonathan;
 
 import com.jonathan.model.Armour;
 import com.jonathan.model.Potion;
-import com.jonathan.model.Weapon;
+import com.jonathan.model.Melee;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -11,7 +11,7 @@ public class Shop {
     /* Keep The Items In Shop In Sorted Order, Sorted By Gold */
     private HashMap<String, Potion> potions;
     private HashMap<String, Armour> armour;
-    private HashMap<String, Weapon> weapons;
+    private HashMap<String, Melee> weapons;
     public Shop() {
         potions = new HashMap<>();
         armour = new HashMap<>();
@@ -45,14 +45,14 @@ public class Shop {
         }
         if (weapons.size() != 0) {
             weaponDetails = "Here are my weapons: \n";
-            Weapon[] sortedWeapons = new Weapon[weapons.size()];
+            Melee[] sortedWeapons = new Melee[weapons.size()];
             int i = 0;
-            for (Weapon w : weapons.values()) {
+            for (Melee w : weapons.values()) {
                 sortedWeapons[i] = w;
                 i++;
             }
             Arrays.sort(sortedWeapons);
-            for (Weapon w : sortedWeapons) {
+            for (Melee w : sortedWeapons) {
                 weaponDetails += String.format("%d gold - %s\n", w.getCost(), w.getName());
             }
         }
@@ -71,9 +71,9 @@ public class Shop {
         }
         return potionDetails + armourDetails + weaponDetails;
     }
-    public Weapon cheapestWeapon() {
-        Weapon cheapest = null;
-        for (Weapon w: weapons.values()) {
+    public Melee cheapestWeapon() {
+        Melee cheapest = null;
+        for (Melee w: weapons.values()) {
             if (cheapest == null)
                 cheapest = w;
             else if (w.getCost() < cheapest.getCost())

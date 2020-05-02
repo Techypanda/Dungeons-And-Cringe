@@ -11,8 +11,17 @@ public abstract class Character {
         gold = inGold;
         currHP = maxHP;
     }
-    public abstract void dealDamage(Character target);
-    public abstract void takeDamage(int inDmg);
+    public int getHP() {
+        return currHP;
+    }
+    public int getGold() {
+        return gold;
+    }
+    public void battleHeal() {
+        currHP = Math.min(maxHP, (int)(currHP * 1.5));
+    }
+    public abstract int getDamage();
+    public abstract int takeDamage(int inDmg);
     public String getName() {return name;}
     public abstract String toString();
     public void setName(String inName) {name = inName;}

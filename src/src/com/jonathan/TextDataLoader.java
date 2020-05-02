@@ -2,7 +2,7 @@ package com.jonathan;
 
 import com.jonathan.model.Armour;
 import com.jonathan.model.Potion;
-import com.jonathan.model.Weapon;
+import com.jonathan.model.Melee;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -80,8 +80,8 @@ public class TextDataLoader extends DataLoader {
         return armour;
     }
     @Override
-    public HashMap<String, Weapon> loadWeapons() throws DataLoadException {
-        HashMap<String, Weapon> weapons = new HashMap<>();
+    public HashMap<String, Melee> loadWeapons() throws DataLoadException {
+        HashMap<String, Melee> weapons = new HashMap<>();
         try (BufferedReader br = new BufferedReader(new FileReader("Y:\\OOSE\\Assignment\\src\\src\\com\\jonathan\\exampleinput.txt"))) {
             String currLine = br.readLine();
             while (currLine != null) {
@@ -97,7 +97,7 @@ public class TextDataLoader extends DataLoader {
                         int min = Integer.parseInt(properties[2].trim());
                         int max = Integer.parseInt(properties[3].trim());
                         String weaponType = properties[5].trim().toUpperCase();
-                        weapons.put(weaponTitle, new Weapon(weaponTitle, cost, min, max, weaponType));
+                        weapons.put(weaponTitle, new Melee(weaponTitle, cost, min, max, weaponType));
                     } catch(NumberFormatException e) {
                         throw new DataLoadException(String.format("Unable to convert cost/max/min to numeric value on line: %s", currLine));
                     }

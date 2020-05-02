@@ -1,12 +1,11 @@
 package com.jonathan.model;
 
 import com.jonathan.model.Enchantment;
-import com.jonathan.model.Wearable;
 
 import java.util.Random;
 
 public class FireEnchantment extends Enchantment {
-    public FireEnchantment(Wearable next) {
+    public FireEnchantment(Weapon next) {
         super(next, "Fire Enchantment");
     }
     @Override

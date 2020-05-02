@@ -1,12 +1,10 @@
 package com.jonathan.model;
 
-import com.jonathan.model.Item;
-import com.jonathan.model.Wearable;
-
-public class Enchantment implements Wearable { /* Decorator Base Class */
-    protected Wearable next;
+public class Enchantment implements Weapon {
+    /* Decorator Base Class, Can be used for both Weapons & Armour. */
+    protected Weapon next;
     protected String enchantmentTitle;
-    public Enchantment(Wearable next, String enchantmentTitle) {
+    public Enchantment(Weapon next, String enchantmentTitle) {
         this.next = next;
         this.enchantmentTitle = enchantmentTitle;
     }
@@ -34,9 +32,5 @@ public class Enchantment implements Wearable { /* Decorator Base Class */
     }
     public String toString() {
         return next.toString() + this.enchantmentTitle + ", ";
-    }
-    @Override
-    public void handleEquip(Player p) {
-        p.setWeapon(this);
     }
 }

@@ -15,16 +15,20 @@ public abstract class Enemy extends Character {
         defence[1] = maxDefence;
     }
     @Override
-    public void dealDamage(Character target) { // Override again for ability.
+    public int getDamage() { // Override again for ability.
         Random rand = new Random();
         int dmgVal = rand.nextInt((damage[1] - damage[0]) + 1) + damage[0];
-        target.takeDamage(dmgVal);
+        return dmgVal;
     }
     @Override
-    public void takeDamage(int inDmg) { // Override again for ability.
+    public int takeDamage(int inDmg) { // Override again for ability.
         Random rand = new Random();
         int armourVal = rand.nextInt((defence[1] - defence[0]) + 1) + defence[0];
-        currHP = currHP - Math.max(0, inDmg - armourVal);
+        int damageTaken = Math.max(0, inDmg - armourVal);
+        currHP = currHP - damageTaken;
+        if (currHP < 0)
+            currHP = 0; /* Cant go negative, you are already dead. */
+        return damageTaken;
     }
     @Override
     public String toString() {

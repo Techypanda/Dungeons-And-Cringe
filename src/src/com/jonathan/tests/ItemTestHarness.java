@@ -7,14 +7,14 @@ public class ItemTestHarness {
     public static void main(String[] args) {
         List<Item> TestInventory = new ArrayList<>();
         TestInventory.add(new Armour("Chainmail", 50, 2, 4, "Chains"));
-        TestInventory.add(new Weapon("Cutlass", 75, 4, 8, "Sharp"));
+        TestInventory.add(new Melee("Cutlass", 75, 4, 8, "Sharp"));
         TestInventory.add(new Potion("Koolaid", 20, 4, 8, 'H'));
         TestInventory.add(new Potion("Poison", 20, 3, 7, 'D'));
         for (Item currItem: TestInventory) {
             System.out.println(currItem.toString());
         }
-        Wearable shiningAm = new Armour("Chainmail", 50, 2, 4, "Chains");
-        Wearable crescentRose = new Weapon("Cutlass", 75, 4, 8, "Sharp");
+        Armour shiningAm = new Armour("Chainmail", 50, 2, 4, "Chains");
+        Weapon crescentRose = new Melee("Cutlass", 75, 4, 8, "Sharp");
         Player p = new Player("A Cool Name", 100, 5);
         p.equip(shiningAm);
         p.equip(crescentRose);

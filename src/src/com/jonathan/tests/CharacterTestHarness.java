@@ -6,14 +6,18 @@ import com.jonathan.model.Character;
 public class CharacterTestHarness {
     public static void main(String[] args) {
         Player player = new Player("A Cool Name", 100, 5);
-        com.jonathan.model.Character slime = new Slime();
-        com.jonathan.model.Character goblin = new Goblin();
-        com.jonathan.model.Character ogre = new Ogre();
+        Character slime = new Slime();
+        Character goblin = new Goblin();
+        Character ogre = new Ogre();
         Character dragon = new Dragon();
-        player.equip(new Weapon("Cutlass", 75, 4, 8, "Sharp"));
-        player.equip(new Armour("Chainmail", 50, 2, 4, "Chains"));
-        System.out.printf("Before Battle: \n%s\n%s\n", player.toString(), dragon.toString());
-        dragon.dealDamage(player);
-        System.out.printf("After Battle: \n%s\n%s\n", player.toString(), dragon.toString());
+        Weapon crescentRose = new Melee("Crescent Rose", 20, 40, 80, "Sword");
+        Armour shiningStar = new Armour("Shining Star", 20, 32, 44, "Shiny");
+        player.addItem(crescentRose);
+        player.addItem(shiningStar);
+        player.equip(crescentRose);
+        player.equip(shiningStar);
+        System.out.println(player.toString());
+        player.equip(new DamageEnchantment(new PowerUpEnchantment(new FireEnchantment(player.removeWeapon())), 2));
+        System.out.println(player.toString());
     }
 }
