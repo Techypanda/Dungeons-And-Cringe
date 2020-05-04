@@ -9,6 +9,10 @@ public class Enchantment implements Weapon {
         this.enchantmentTitle = enchantmentTitle;
     }
     @Override
+    public int getCost() {
+        return next.getCost();
+    }
+    @Override
     public int getEffect() {
         return next.getEffect();
     }
@@ -30,6 +34,7 @@ public class Enchantment implements Weapon {
     public String getName() {
         return this.enchantmentTitle;
     }
+    @Override
     public String toString() {
         return next.toString() + this.enchantmentTitle + ", ";
     }

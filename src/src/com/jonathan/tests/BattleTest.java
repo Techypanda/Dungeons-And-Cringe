@@ -10,7 +10,7 @@ import com.jonathan.model.Character;
 public class BattleTest {
     public static void main(String[] args) {
         BattleController battleController = new BattleController();
-        Player player = new Player("Tec", 100, 2);
+        Player player = new Player();
         Weapon scythe = new Melee("Crescent Rose", 20, 4, 8, "Scythe");
         Armour shining = new Armour("Shining Armour", 20, 4, 8, "Leather");
         player.equip(scythe);

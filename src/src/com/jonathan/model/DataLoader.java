@@ -1,8 +1,6 @@
-package com.jonathan;
+package com.jonathan.model;
 
-import com.jonathan.model.Armour;
-import com.jonathan.model.Potion;
-import com.jonathan.model.Melee;
+import com.jonathan.exceptions.DataLoadException;
 
 import java.util.HashMap;
 
@@ -14,7 +12,8 @@ public abstract class DataLoader { /* Base Class For All Loaders of Data */
         }
         return data;
     }
-    public abstract HashMap<String, Potion> loadPotions() throws DataLoadException;
+    public abstract HashMap<String, Healing> loadHealingPotions() throws DataLoadException;
+    public abstract HashMap<String, Damage> loadDamagePotions() throws DataLoadException;
     public abstract HashMap<String, Armour> loadArmour() throws DataLoadException;
     public abstract HashMap<String, Melee> loadWeapons() throws DataLoadException;
 }

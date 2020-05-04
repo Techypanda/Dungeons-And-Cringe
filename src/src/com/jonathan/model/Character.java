@@ -17,6 +17,9 @@ public abstract class Character {
     public int getGold() {
         return gold;
     }
+    public void setGold(int gold) {
+        this.gold = gold;
+    }
     public void battleHeal() {
         currHP = Math.min(maxHP, (int)(currHP * 1.5));
     }

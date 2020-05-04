@@ -5,5 +5,6 @@ public interface Weapon {
     String getEnchantments();
     int getMax();
     int getMin();
+    int getCost();
     String getName();
 }

@@ -1,16 +1,27 @@
 package com.jonathan.tests;
 
-import com.jonathan.DataLoadException;
-import com.jonathan.DataLoader;
-import com.jonathan.Shop;
+import com.jonathan.controller.InventoryController;
+import com.jonathan.controller.ShopController;
+import com.jonathan.exceptions.DataLoadException;
+import com.jonathan.exceptions.ShopException;
+import com.jonathan.model.DataLoader;
+import com.jonathan.model.Player;
+import com.jonathan.model.Shop;
+import com.jonathan.view.InventoryViewer;
+import com.jonathan.view.ShopViewer;
 
 public class ShopTestHarness {
     public static void main(String[] args) {
         Shop myShop = new Shop();
         try {
-            myShop.updateShop(DataLoader.getLoader("Y:\\OOSE\\Assignment\\src\\src\\com\\jonathan\\exampleinput.csv"));
-            System.out.println(myShop.describeShop());
-        } catch (DataLoadException e) {
+            Player player = new Player();
+            Shop shop = new Shop();
+            ShopViewer shopView = new ShopViewer();
+            InventoryViewer invView = new InventoryViewer();
+            InventoryController invController = new InventoryController(player, invView);
+            ShopController shopController = new ShopController(shop, shopView, player, invController);
+            shopController.beginShop();
+        } catch (ShopException e) {
             System.out.println(e.getMessage());
         }
     }

@@ -12,10 +12,18 @@ public class Player extends Character {
     private Map<String, Potion> potions;
     private Weapon weapon; /* For Enchantments. */
     private Armour armour; /* For Enchantments. */
-    public Player(String inName, int inHP, int inGold) {
+    public Player() {
+        super("The Player", 30, 100);
+        weapon = new Melee("No Weapon", 0, 0, 0, "Fists");
+        armour = new Armour("No Armour", 0, 0, 0, "Bare Skin");
+        weapons = new HashMap<>();
+        armours = new HashMap<>();
+        potions = new HashMap<>();
+    }
+    public Player(String inName, int inHP, int inGold, Weapon inWeapon, Armour inArmour) {
         super(inName, inHP, inGold);
-        weapon = new Melee("cHANGe ThIS", 2, 2, 2, "2");
-        armour = new Armour("ChAngeE thissS", 2, 2, 2, "2");
+        weapon = inWeapon;
+        armour = inArmour;
         weapons = new HashMap<>();
         armours = new HashMap<>();
         potions = new HashMap<>();

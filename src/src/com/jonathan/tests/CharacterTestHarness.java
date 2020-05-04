@@ -5,7 +5,7 @@ import com.jonathan.model.Character;
 
 public class CharacterTestHarness {
     public static void main(String[] args) {
-        Player player = new Player("A Cool Name", 100, 5);
+        Player player = new Player();
         Character slime = new Slime();
         Character goblin = new Goblin();
         Character ogre = new Ogre();

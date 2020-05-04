@@ -7,9 +7,8 @@ import com.jonathan.model.BattleObserver;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class BattleViewer implements BattleObserver {
+public class BattleViewer extends View implements BattleObserver {
     private Battle battle;
-    public BattleViewer() {}
     public int requestOption() {
         int response = 0;
         while (response < 1 || response > 2) {
