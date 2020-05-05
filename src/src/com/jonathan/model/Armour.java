@@ -8,6 +8,10 @@ public class Armour extends Item {
         super(inName, inCost, inMinEffect, inMaxEffect);
         material = inMaterial;
     }
+    public Armour(Armour inItem) {
+        super(inItem.getName(), inItem.getCost(), inItem.getMin(), inItem.getMax());
+        material = inItem.material;
+    }
     @Override
     public String toString() {
         return String.format("%s, Material: %s, Cost: %d, Armour: %d - %d", name, material, cost,

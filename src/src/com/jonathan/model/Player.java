@@ -1,32 +1,32 @@
 package com.jonathan.model;
 
 import java.lang.Math;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Player extends Character {
     /* private Map<String, Item> inventory; Why I chose not to implement it this way is covered in the docs, basically
     * I cant think of a good way with containing just the items to seperate into potions sword and armour  */
-    private Map<String, Weapon> weapons;
-    private Map<String, Armour> armours;
-    private Map<String, Potion> potions;
+    private List<Weapon> weapons;
+    private List<Armour> armours;
+    private List<Potion> potions;
     private Weapon weapon; /* For Enchantments. */
     private Armour armour; /* For Enchantments. */
     public Player() {
         super("The Player", 30, 100);
         weapon = new Melee("No Weapon", 0, 0, 0, "Fists");
         armour = new Armour("No Armour", 0, 0, 0, "Bare Skin");
-        weapons = new HashMap<>();
-        armours = new HashMap<>();
-        potions = new HashMap<>();
+        weapons = new ArrayList<>();
+        armours = new ArrayList<>();
+        potions = new ArrayList<>();
     }
     public Player(String inName, int inHP, int inGold, Weapon inWeapon, Armour inArmour) {
         super(inName, inHP, inGold);
         weapon = inWeapon;
         armour = inArmour;
-        weapons = new HashMap<>();
-        armours = new HashMap<>();
-        potions = new HashMap<>();
+        weapons = new ArrayList<>();
+        armours = new ArrayList<>();
+        potions = new ArrayList<>();
     }
     @Override
     public int getDamage() {
@@ -60,15 +60,65 @@ public class Player extends Character {
         armour = toEquip;
     }
     public void addItem(Weapon inWeapon) {
-        weapons.put(inWeapon.getName(), inWeapon);
+        weapons.add(inWeapon);
     }
     public void addItem(Armour inArmour) {
-        armours.put(inArmour.getName(), inArmour);
+        armours.add(inArmour);
     }
     public void addItem(Potion inPotion) {
-        potions.put(inPotion.getName(), inPotion);
+        potions.add(inPotion);
     }
-    public Weapon removeWeapon() {
-        return weapons.remove(weapon.getName());
+    public String showWeapons() {
+        return invCollection(weapons.toArray(new Item[0]));
+    }
+    public Weapon removeWeapon(String inWeaponTitle) {
+        for (Weapon currWeapon: weapons) {
+            if (currWeapon.getName().equals(inWeaponTitle)) {
+                weapons.remove(currWeapon);
+                if (weapon.equals(currWeapon)) {
+                    weapon = new Melee("No Weapon", 0, 0, 0, "Fists");
+                }
+                return currWeapon;
+            }
+        }
+        return null;
+    }
+    public Weapon getWeapon(String inWeaponTitle) {
+        for (Weapon currWeapon: weapons) {
+            if (currWeapon.getName().equals(inWeaponTitle)) {
+                weapons.remove(currWeapon);
+                if (weapon.equals(currWeapon)) {
+                    weapon = new Melee("No Weapon", 0, 0, 0, "Fists");
+                }
+                return currWeapon;
+            }
+        }
+        return null;
+    }
+    public Weapon getHeldWeapon() {
+        return weapon;
+    }
+    public Armour getHeldArmour() {
+        return armour;
+    }
+    public String showArmour() {
+        return invCollection(armours.toArray(new Item[0]));
+    }
+    public String showPotions() {
+        return invCollection(potions.toArray(new Item[0]));
+    }
+    private Item find(List<Item> inList, String name) {
+        for (Item curr: inList) {
+            if (curr.getName().toUpperCase().equals(name.toUpperCase()))
+                return curr;
+        }
+        return null;
+    }
+    private String invCollection(Item[] items) {
+        String outItems = "";
+        for (Item curr: items) {
+            outItems += curr.toString() + "\n";
+        }
+        return outItems;
     }
 }

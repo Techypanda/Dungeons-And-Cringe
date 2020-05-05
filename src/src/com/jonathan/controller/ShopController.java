@@ -32,7 +32,7 @@ public class ShopController {
                     itemPurchase();
                     break;
                 case 2:
-                    System.out.println("Enchanting.");
+                    enchanting();
                     break;
                 case 3:
                     System.out.println("Sell Items at 50%");
@@ -41,6 +41,30 @@ public class ShopController {
                     throw new ShopException("Unknown Shop Selection returned from the shop view.");
             }
             response = view.getShopResponse();
+        }
+    }
+    private void enchanting() throws ShopException {
+        /* Enchantments are kept seperate from the shop model. */
+        Weapon chosenWeapon = invController.getWeapon();
+        view.displayStats(player.toString());
+        int response = view.getEnchantingChoice();
+        switch (response) {
+            case 0:
+                break; /* Unrecognized Enchantment */
+            case 1:
+                /* Damage +5 */
+                break;
+            case 2:
+                /* Damage +2 */
+                break;
+            case 3:
+                /* Fire Damage */
+                break;
+            case 4:
+                /* Power Up */
+                break;
+            default:
+                throw new ShopException("A Unrecognized Enchantment was returned from view.");
         }
     }
     private void itemPurchase() throws ShopException {

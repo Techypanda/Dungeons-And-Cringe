@@ -8,6 +8,10 @@ public class Melee extends Item implements Weapon {
         super(inName, inCost, inMinEffect, inMaxEffect);
         type = inType;
     }
+    public Melee(Melee inWeapon) {
+        super(inWeapon.getName(), inWeapon.getCost(), inWeapon.getMin(), inWeapon.getMax());
+        type = inWeapon.type;
+    }
     @Override
     public String toString() {
         return String.format("%s, Damage Type: %s, Cost: %d, Damage: %d - %d, Enchantments: ", name, type, cost,

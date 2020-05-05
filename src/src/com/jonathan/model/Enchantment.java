@@ -38,4 +38,5 @@ public class Enchantment implements Weapon {
     public String toString() {
         return next.toString() + this.enchantmentTitle + ", ";
     }
+    public String getEnchantmentTitle() {return enchantmentTitle;}
 }

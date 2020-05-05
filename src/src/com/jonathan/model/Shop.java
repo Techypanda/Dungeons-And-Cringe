@@ -3,15 +3,14 @@ package com.jonathan.model;
 import com.jonathan.exceptions.DataLoadException;
 import com.jonathan.model.*;
 
-import java.util.Arrays;
-import java.util.HashMap;
+import java.util.*;
 
 public class Shop {
     /* Keep The Items In Shop In Sorted Order, Sorted By Gold */
-    private HashMap<String, Healing> healingPotions;
-    private HashMap<String, Damage> harmingPotions;
-    private HashMap<String, Armour> armour;
-    private HashMap<String, Melee> weapons;
+    private Map<String, Healing> healingPotions;
+    private Map<String, Damage> harmingPotions;
+    private Map<String, Armour> armour;
+    private Map<String, Melee> weapons;
     public Shop() {
         healingPotions = new HashMap<>();
         harmingPotions = new HashMap<>();
@@ -74,15 +73,15 @@ public class Shop {
         return cheapest;
     }
     public Weapon getWeapon(String selectedWeapon) {
-        return weapons.get(selectedWeapon);
+        return new Melee(weapons.get(selectedWeapon));
     }
     public Armour getArmour(String selectedArmour) {
-        return armour.get(selectedArmour);
+        return new Armour(armour.get(selectedArmour));
     }
     public Damage getDamagePotion(String selectedPotion) {
-        return harmingPotions.get(selectedPotion);
+        return new Damage(harmingPotions.get(selectedPotion));
     }
     public Healing getHealingPotion(String selectedPotion) {
-        return healingPotions.get(selectedPotion);
+        return new Healing(healingPotions.get(selectedPotion));
     }
 }

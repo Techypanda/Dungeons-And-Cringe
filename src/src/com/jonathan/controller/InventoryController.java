@@ -57,4 +57,11 @@ public class InventoryController {
             return true;
         }
     }
+    public Weapon getWeapon() {
+        if (itemCount <= 0)
+            return null;
+        Weapon outWeapon = null;
+
+        return outWeapon;
+    }
 }

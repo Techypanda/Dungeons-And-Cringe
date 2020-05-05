@@ -17,7 +17,7 @@ public class CharacterTestHarness {
         player.equip(crescentRose);
         player.equip(shiningStar);
         System.out.println(player.toString());
-        player.equip(new DamageEnchantment(new PowerUpEnchantment(new FireEnchantment(player.removeWeapon())), 2));
+        player.equip(new DamageEnchantment(new PowerUpEnchantment(new FireEnchantment(player.removeWeapon(player.getHeldWeapon().getName()))), 2));
         System.out.println(player.toString());
     }
 }
