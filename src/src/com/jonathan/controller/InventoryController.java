@@ -58,10 +58,10 @@ public class InventoryController {
         }
     }
     public Weapon getWeapon() {
-        if (itemCount <= 0)
+        if (itemCount <= 0) {
+            view.emptyInventory();
             return null;
-        Weapon outWeapon = null;
-
-        return outWeapon;
+        }
+        return null;
     }
 }

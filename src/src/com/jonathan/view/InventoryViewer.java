@@ -7,6 +7,9 @@ public class InventoryViewer extends View {
     public void unsuccessfulAdd(String itemName, String reason) {
         System.out.println(itemName + " cannot be added to inventory: " + reason);
     }
+    public void emptyInventory() {
+
+    }
     public void equipped(String playerName, String itemName) {
 
     }
