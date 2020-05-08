@@ -49,10 +49,7 @@ public class Battle { /* Observer Pattern used. */
             battleDetails = String.format("%s has dealt %d damage to %s!\n%s remains with %d HP.",
                     characterOne.getName(), damageTaken, characterTwo.getName(), characterTwo.getName(),
                     characterTwo.getHP());
-            if (characterTwo.getHP() <= 0) {
-                winner = characterOne;
-                characterOne.battleHeal();
-            }
+            checkWin();
             notifyObservers();
             turn = 2;
         } else {
@@ -60,10 +57,27 @@ public class Battle { /* Observer Pattern used. */
             battleDetails = String.format("%s has dealt %d damage to %s!\n%s remains with %d HP.",
                     characterTwo.getName(), damageTaken, characterOne.getName(), characterOne.getName(),
                     characterOne.getHP());
-            if (characterOne.getHP() <= 0)
-                winner = characterTwo;
+            checkWin();
             notifyObservers();
             turn = 1;
+        }
+    }
+    public void incrementTurn() {
+        if (turn == 1) {
+            turn = 2;
+            checkWin();
+        }
+        else if (turn == 2) {
+            turn = 1;
+            checkWin();
+        }
+    }
+    private void checkWin() {
+        if (characterOne.getHP() <= 0)
+            winner = characterTwo;
+        if (characterTwo.getHP() <= 0) {
+            winner = characterOne;
+            characterOne.battleHeal();
         }
     }
 }

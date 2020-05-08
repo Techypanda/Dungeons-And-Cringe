@@ -17,6 +17,9 @@ public abstract class Character {
     public int getGold() {
         return gold;
     }
+    public void setHP(int hp) {
+        this.currHP = hp;
+    }
     public void setGold(int gold) {
         this.gold = gold;
     }

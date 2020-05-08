@@ -48,7 +48,14 @@ public class BattleViewer extends View implements BattleObserver {
         System.out.println("You have no potions.");
     }
     public void damagePotion(String potionName, String enemyName, int potionDmg, int beforeHP, int afterHP) {
-        System.out.printf("%s has been used on %s, %s has taken %d damage, going from %d HP to %d HP\n", potionName,
-                enemyName, enemyName, potionDmg, beforeHP, afterHP);
+        System.out.printf("%s has been used on %s, %s has gone from %d HP to %d HP\n", potionName,
+                enemyName, enemyName, beforeHP, afterHP);
+    }
+    public void healPotion(String potionName, String playerName, int potionHeal, int playerHP) {
+        System.out.printf("%s has been drunk by %s, %d has been healed leaving %s with %d HP.%n", potionName,
+                playerName, potionHeal, playerName, playerHP);
+    }
+    public void failedPotion(String potionName, String reason) {
+        System.out.printf("%s cannot be used: %s%n", potionName, reason);
     }
 }

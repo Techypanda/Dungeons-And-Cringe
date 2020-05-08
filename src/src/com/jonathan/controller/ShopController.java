@@ -18,7 +18,7 @@ public class ShopController {
     }
     public void beginShop() throws ShopException {
         try {
-            shop.updateShop(DataLoader.getLoader("C:\\Users\\Jonat\\Documents\\OOSE\\OOSE-Assignment\\src\\src\\com\\jonathan\\exampleinput.csv"));
+            shop.updateShop(DataLoader.getLoader("Y:\\OOSE\\Assignment\\src\\src\\com\\jonathan\\exampleinput.csv"));
         } catch (DataLoadException e) {
             throw new ShopException(
                     String.format("Shop Was Unable to be loaded from input file via dataloader, here are the details: %s",

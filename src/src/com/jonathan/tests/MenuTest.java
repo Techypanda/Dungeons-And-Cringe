@@ -21,7 +21,7 @@ public class MenuTest {
         InventoryController invController = new InventoryController(player, invView);
         MenuController menu = new MenuController(new MenuView(),
                 invController,
-                new BattleController(player, battleView),
+                new BattleController(player, battleView, invController),
                 new ShopController(shop, shopView, player, invController),
                 player);
         try {

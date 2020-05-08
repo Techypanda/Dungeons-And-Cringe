@@ -11,12 +11,14 @@ public class BattleController {
     private Battle battle;
     private BattleViewer theView;
     private Player player;
-    public BattleController(Player player, BattleViewer view) {
+    private InventoryController invController;
+    public BattleController(Player player, BattleViewer view, InventoryController invController) {
         probabilities = new double[4];
         probabilities[0] = 0.5;
         probabilities[1] = 0.3;
         probabilities[2] = 0.2;
         probabilities[3] = 0;
+        this.invController = invController;
         this.player = player;
         this.theView = view;
     } /* Battle Controller Does Not need to start battle here. */
@@ -85,19 +87,39 @@ public class BattleController {
                             int beforeHP = enemy.getHP();
                             enemy.takeDamage(potionDmg);
                             theView.damagePotion(potionName, enemy.getName(), potionDmg, beforeHP, enemy.getHP());
+                            battle.incrementTurn();
+                            invController.removeFromInventory(selected);
                         } else if (dmgPotion.length == 1) {
                             int potionDmg = dmgPotion[0].getEffect();
                             int beforeHP = enemy.getHP();
                             enemy.takeDamage(potionDmg);
                             theView.damagePotion(potionName, enemy.getName(), potionDmg, beforeHP, enemy.getHP());
+                            battle.incrementTurn();
+                            invController.removeFromInventory(dmgPotion[0]);
                         } else {
                             Healing[] hpPot = player.getHealingPotion(potionName);
                             if (hpPot.length > 1) {
-
+                                String[] potionDesc = new String[hpPot.length];
+                                for (int i = 0; i < hpPot.length; i++)
+                                    potionDesc[i] = hpPot[i].toString();
+                                Potion selected = hpPot[theView.multipleSelection(potionDesc)];
+                                int potionHeal = selected.getEffect();
+                                int healHP = player.getHP() + potionHeal;
+                                if (healHP > 100) healHP = 100;
+                                player.setHP(healHP);
+                                theView.healPotion(potionName, player.getName(), potionHeal, player.getHP());
+                                battle.incrementTurn();
+                                invController.removeFromInventory(selected);
                             } else if (hpPot.length == 1) {
-
+                                int potionHeal = hpPot[0].getEffect();
+                                int healHP = player.getHP() + potionHeal;
+                                if (healHP > 100) healHP = 100;
+                                player.setHP(healHP);
+                                theView.healPotion(potionName, player.getName(), potionHeal, player.getHP());
+                                battle.incrementTurn();
+                                invController.removeFromInventory(hpPot[0]);
                             } else {
-
+                                theView.failedPotion(potionName, "That potion does not exist in your inventory.");
                             }
                         }
                     } else {

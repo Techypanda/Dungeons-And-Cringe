@@ -84,7 +84,7 @@ public class Player extends Character {
             return null;
     }
     public boolean hasPotions() {
-        return (healingPotions.size() != 0) && (damagePotions.size() != 0);
+        return (healingPotions.size() != 0) || (damagePotions.size() != 0);
     }
     public Potion removePotion(Potion p) {
         if (damagePotions.remove(p) || healingPotions.remove(p))
