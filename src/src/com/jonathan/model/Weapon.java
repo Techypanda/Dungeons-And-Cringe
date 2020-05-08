@@ -7,4 +7,6 @@ public interface Weapon {
     int getMin();
     int getCost();
     String getName();
+    String getMeleeTitle();
+    boolean equals(Object inObject);
 }

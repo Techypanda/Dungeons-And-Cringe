@@ -22,4 +22,17 @@ public class Armour extends Item {
         Random rand = new Random();
         return rand.nextInt((maxEffect - minimumEffect) + 1) + minimumEffect;
     }
+    @Override public boolean equals(Object inObject) {
+        boolean isEquals = false;
+        if (inObject instanceof Armour) {
+            Armour a = (Armour)inObject;
+            if (a.material.toUpperCase().equals(this.material.toUpperCase()))
+                if (a.minimumEffect == this.minimumEffect)
+                    if (a.maxEffect == this.maxEffect)
+                        if (a.cost == this.cost)
+                            if (a.name.toUpperCase().equals(this.name.toUpperCase()))
+                                isEquals = true;
+        }
+        return isEquals;
+    }
 }

@@ -56,4 +56,23 @@ public class ShopViewer extends View {
         System.out.printf("%s has purchased %s, they had %d gold and the item cost %d gold, they now have %d gold remaining.%n",
                 playerName, itemName, playerCash, itemCost, remaining);
     }
+    public String sellPrompt(String generalInventory) {
+        System.out.println("All Items Will Sell For 50% Of Their Cost Price.");
+        System.out.println(generalInventory);
+        return prompt();
+    }
+    public void failSell(String itemName, String reason) {
+        System.out.printf("Failed to sell %s reason: %s%n", itemName, reason);
+    }
+    public int sellConfirmation(String itemName, int cost) {
+        System.out.println("Are you sure you want to sell " + itemName + " for " + cost + " gold?: (Yes/anything else for no)");
+        Scanner sc = new Scanner(System.in);
+        String response = sc.nextLine();
+        if (response.toUpperCase().equals("YES"))
+            return 1;
+        return 0;
+    }
+    public void sold(String itemName, int cost) {
+        System.out.println(itemName + " has been sold for " + cost);
+    }
 }

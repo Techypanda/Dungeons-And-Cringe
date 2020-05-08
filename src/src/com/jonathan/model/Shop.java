@@ -73,15 +73,28 @@ public class Shop {
         return cheapest;
     }
     public Weapon getWeapon(String selectedWeapon) {
-        return new Melee(weapons.get(selectedWeapon));
+        Melee m = weapons.get(selectedWeapon);
+        if (m != null) {
+            return new Melee(m);
+        }
+        return null;
     }
     public Armour getArmour(String selectedArmour) {
-        return new Armour(armour.get(selectedArmour));
+        Armour a = armour.get(selectedArmour);
+        if (a != null)
+            return new Armour(a);
+        return null;
     }
     public Damage getDamagePotion(String selectedPotion) {
-        return new Damage(harmingPotions.get(selectedPotion));
+        Damage p = harmingPotions.get(selectedPotion);
+        if (p != null)
+            return new Damage(p);
+        return null;
     }
     public Healing getHealingPotion(String selectedPotion) {
-        return new Healing(healingPotions.get(selectedPotion));
+        Healing p = healingPotions.get(selectedPotion);
+        if (p != null)
+            return new Healing(p);
+        return null;
     }
 }

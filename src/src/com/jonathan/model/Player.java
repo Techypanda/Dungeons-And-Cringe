@@ -9,7 +9,8 @@ public class Player extends Character {
     * I cant think of a good way with containing just the items to seperate into potions sword and armour  */
     private List<Weapon> weapons;
     private List<Armour> armours;
-    private List<Potion> potions;
+    private List<Damage> damagePotions;
+    private List<Healing> healingPotions;
     private Weapon weapon; /* For Enchantments. */
     private Armour armour; /* For Enchantments. */
     public Player() {
@@ -18,7 +19,8 @@ public class Player extends Character {
         armour = new Armour("No Armour", 0, 0, 0, "Bare Skin");
         weapons = new ArrayList<>();
         armours = new ArrayList<>();
-        potions = new ArrayList<>();
+        damagePotions = new ArrayList<>();
+        healingPotions = new ArrayList<>();
     }
     public Player(String inName, int inHP, int inGold, Weapon inWeapon, Armour inArmour) {
         super(inName, inHP, inGold);
@@ -26,7 +28,6 @@ public class Player extends Character {
         armour = inArmour;
         weapons = new ArrayList<>();
         armours = new ArrayList<>();
-        potions = new ArrayList<>();
     }
     @Override
     public int getDamage() {
@@ -65,35 +66,81 @@ public class Player extends Character {
     public void addItem(Armour inArmour) {
         armours.add(inArmour);
     }
-    public void addItem(Potion inPotion) {
-        potions.add(inPotion);
-    }
+    public void addItem(Damage inPotion) { damagePotions.add(inPotion); }
+    public void addItem(Healing inPotion) { healingPotions.add(inPotion); }
     public String showWeapons() {
-        return invCollection(weapons.toArray(new Item[0]));
+        return invCollection(weapons.toArray(new Weapon[0]));
     }
-    public Weapon removeWeapon(String inWeaponTitle) {
+    public Weapon removeWeapon(Weapon inWeapon) {
+        if (weapons.remove(inWeapon))
+            return inWeapon;
+        else
+            return null;
+    }
+    public Armour removeArmour(Armour inArmour) {
+        if (armours.remove(inArmour))
+            return inArmour;
+        else
+            return null;
+    }
+    public boolean hasPotions() {
+        return (healingPotions.size() != 0) && (damagePotions.size() != 0);
+    }
+    public Potion removePotion(Potion p) {
+        if (damagePotions.remove(p) || healingPotions.remove(p))
+            return p;
+        else
+            return null;
+    }
+    public Weapon[] getWeapon(String inWeaponTitle) {
+        ArrayList<Weapon> weaponList = new ArrayList<>();
         for (Weapon currWeapon: weapons) {
-            if (currWeapon.getName().equals(inWeaponTitle)) {
-                weapons.remove(currWeapon);
-                if (weapon.equals(currWeapon)) {
-                    weapon = new Melee("No Weapon", 0, 0, 0, "Fists");
-                }
-                return currWeapon;
+            if (currWeapon.getMeleeTitle().toUpperCase().equals(inWeaponTitle.toUpperCase())) {
+                weaponList.add(currWeapon);
             }
         }
-        return null;
+        return weaponList.toArray(new Weapon[0]);
     }
-    public Weapon getWeapon(String inWeaponTitle) {
-        for (Weapon currWeapon: weapons) {
-            if (currWeapon.getName().equals(inWeaponTitle)) {
-                weapons.remove(currWeapon);
-                if (weapon.equals(currWeapon)) {
-                    weapon = new Melee("No Weapon", 0, 0, 0, "Fists");
-                }
-                return currWeapon;
+    public Armour[] getArmour(String inArmourTitle) {
+        ArrayList<Armour> armourList = new ArrayList<>();
+        for (Armour currArmour: armours) {
+            if (currArmour.getName().toUpperCase().equals(inArmourTitle.toUpperCase())) {
+                armourList.add(currArmour);
             }
         }
-        return null;
+        return armourList.toArray(new Armour[0]);
+    }
+    public Potion[] getPotions(String inPotionTitle) {
+        ArrayList<Potion> potionList = new ArrayList<>();
+        for (Healing currPotion: healingPotions) {
+            if (currPotion.getName().toUpperCase().equals(inPotionTitle.toUpperCase())) {
+                potionList.add(currPotion);
+            }
+        }
+        for (Damage currPotion: damagePotions) {
+            if (currPotion.getName().toUpperCase().equals(inPotionTitle.toUpperCase())) {
+                potionList.add(currPotion);
+            }
+        }
+        return potionList.toArray(new Potion[0]);
+    }
+    public Damage[] getDamagePotion(String inPotionTitle) {
+        ArrayList<Damage> potionList = new ArrayList<>();
+        for (Damage currPotion: damagePotions) {
+            if (currPotion.getName().toUpperCase().equals(inPotionTitle.toUpperCase())) {
+                potionList.add(currPotion);
+            }
+        }
+        return potionList.toArray(new Damage[0]);
+    }
+    public Healing[] getHealingPotion(String inPotionTitle) {
+        ArrayList<Healing> potionList = new ArrayList<>();
+        for (Healing currPotion: healingPotions) {
+            if (currPotion.getName().toUpperCase().equals(inPotionTitle.toUpperCase())) {
+                potionList.add(currPotion);
+            }
+        }
+        return potionList.toArray(new Healing[0]);
     }
     public Weapon getHeldWeapon() {
         return weapon;
@@ -105,7 +152,7 @@ public class Player extends Character {
         return invCollection(armours.toArray(new Item[0]));
     }
     public String showPotions() {
-        return invCollection(potions.toArray(new Item[0]));
+        return invCollection(damagePotions.toArray(new Damage[0])) + invCollection(healingPotions.toArray(new Healing[0]));
     }
     private Item find(List<Item> inList, String name) {
         for (Item curr: inList) {
@@ -121,4 +168,12 @@ public class Player extends Character {
         }
         return outItems;
     }
+    private String invCollection(Weapon[] items) { // Decorators dont extend item.
+        String outItems = "";
+        for (Weapon curr: items) {
+            outItems += curr.toString() + "\n";
+        }
+        return outItems;
+    }
+
 }

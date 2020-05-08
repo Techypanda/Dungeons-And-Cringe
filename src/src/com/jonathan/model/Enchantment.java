@@ -32,11 +32,22 @@ public class Enchantment implements Weapon {
     }
     @Override
     public String getName() {
-        return this.enchantmentTitle;
+        return next.getName();
     }
+    @Override
+    public String getMeleeTitle() { return next.getMeleeTitle(); }
     @Override
     public String toString() {
         return next.toString() + this.enchantmentTitle + ", ";
     }
     public String getEnchantmentTitle() {return enchantmentTitle;}
+    @Override
+    public boolean equals(Object inObject) {
+        boolean equals = false;
+        if (inObject instanceof Enchantment) {
+            if (next.equals(((Enchantment)inObject).next))
+                equals = true;
+        }
+        return equals;
+    }
 }

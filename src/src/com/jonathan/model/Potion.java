@@ -16,6 +16,6 @@ public abstract class Potion extends Item {
         return rand.nextInt((maxEffect - minimumEffect) + 1) + minimumEffect;
     }
     @Override public String toString() {
-        return String.format("%s, Effect: %d - %d", getName(), getMin(), getMax());
+        return String.format("%s, Cost: %d, Effect: %d - %d", getName(), getCost(), getMin(), getMax());
     }
 }

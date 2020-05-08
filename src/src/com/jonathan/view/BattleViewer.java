@@ -34,4 +34,21 @@ public class BattleViewer extends View implements BattleObserver {
             System.out.printf("%s has won the battle and has taken the loser's gold of: %d!%n", winner.getName(), battle.getReward());
         }
     }
+    public void announceBattle(String characterOne, String characterTwo) {
+        System.out.println("A New Battle has begun");
+        System.out.println(characterOne + " vs " + characterTwo);
+        System.out.println(characterOne + " will start.");
+    }
+    public String queryPotion(String potions) {
+        System.out.println("Here are your potions: ");
+        System.out.println(potions + "\nPlease select a potion.");
+        return prompt();
+    }
+    public void noPotions() {
+        System.out.println("You have no potions.");
+    }
+    public void damagePotion(String potionName, String enemyName, int potionDmg, int beforeHP, int afterHP) {
+        System.out.printf("%s has been used on %s, %s has taken %d damage, going from %d HP to %d HP\n", potionName,
+                enemyName, enemyName, potionDmg, beforeHP, afterHP);
+    }
 }

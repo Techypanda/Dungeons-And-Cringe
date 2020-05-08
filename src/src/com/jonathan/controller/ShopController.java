@@ -18,7 +18,7 @@ public class ShopController {
     }
     public void beginShop() throws ShopException {
         try {
-            shop.updateShop(DataLoader.getLoader("Y:\\OOSE\\Assignment\\src\\src\\com\\jonathan\\exampleinput.csv"));
+            shop.updateShop(DataLoader.getLoader("C:\\Users\\Jonat\\Documents\\OOSE\\OOSE-Assignment\\src\\src\\com\\jonathan\\exampleinput.csv"));
         } catch (DataLoadException e) {
             throw new ShopException(
                     String.format("Shop Was Unable to be loaded from input file via dataloader, here are the details: %s",
@@ -35,7 +35,7 @@ public class ShopController {
                     enchanting();
                     break;
                 case 3:
-                    System.out.println("Sell Items at 50%");
+                    sell();
                     break;
                 default:
                     throw new ShopException("Unknown Shop Selection returned from the shop view.");
@@ -43,28 +43,136 @@ public class ShopController {
             response = view.getShopResponse();
         }
     }
+    private void sell() {
+        if (invController.isEmpty() != true) {
+            String chosenToSell = view.sellPrompt(player.showWeapons() + player.showArmour() + player.showPotions());
+            Weapon[] theWeapon = player.getWeapon(chosenToSell);
+            if (theWeapon.length >= 1) {
+                if (theWeapon.length == 1) {
+                    int price = (int) ((float) theWeapon[0].getCost() * 0.50);
+                    int confirmation = view.sellConfirmation(theWeapon[0].getName(), price);
+                    if (confirmation == 1) {
+                        invController.removeFromInventory(theWeapon[0]);
+                        view.sold(theWeapon[0].getName(), price);
+                        player.setGold(player.getGold() + price);
+                    }
+                } else {
+                    String[] weaponDesc = new String[theWeapon.length];
+                    for (int i = 0; i < theWeapon.length; i++)
+                        weaponDesc[i] = theWeapon[i].toString();
+                    Weapon selected = theWeapon[view.multipleSelection(weaponDesc)];
+                    int price = (int) (selected.getCost() * 0.50);
+                    int confirmation = view.sellConfirmation(selected.getName(), price);
+                    if (confirmation == 1) {
+                        invController.removeFromInventory(selected);
+                        view.sold(selected.getName(), price);
+                        player.setGold(player.getGold() + price);
+                    }
+                }
+            } else {
+                Armour[] theArmour = player.getArmour(chosenToSell);
+                if (theArmour.length >= 1) {
+                    if (theArmour.length == 1) {
+                        int price = (int) ((float) theArmour[0].getCost() * 0.50);
+                        int confirmation = view.sellConfirmation(theArmour[0].getName(), price);
+                        if (confirmation == 1) {
+                            invController.removeFromInventory(theArmour[0]);
+                            view.sold(theArmour[0].getName(), price);
+                            player.setGold(player.getGold() + price);
+                        }
+                    } else {
+                        String[] armourDesc = new String[theArmour.length];
+                        for (int i = 0; i < theArmour.length; i++)
+                            armourDesc[i] = theArmour[i].toString();
+                        Armour selected = theArmour[view.multipleSelection(armourDesc)];
+                        int price = (int) ((float) selected.getCost() * 0.50);
+                        int confirmation = view.sellConfirmation(selected.getName(), price);
+                        if (confirmation == 1) {
+                            invController.removeFromInventory(selected);
+                            view.sold(selected.getName(), price);
+                            player.setGold(player.getGold() + price);
+                        }
+                    }
+                } else {
+                    Potion[] thePotion = player.getPotions(chosenToSell);
+                    if (thePotion.length >= 1) {
+                        if (thePotion.length == 1) {
+                            int price = (int) ((float) thePotion[0].getCost() * 0.50);
+                            int confirmation = view.sellConfirmation(thePotion[0].getName(), price);
+                            if (confirmation == 1) {
+                                invController.removeFromInventory(thePotion[0]);
+                                view.sold(thePotion[0].getName(), price);
+                                player.setGold(player.getGold() + price);
+                            }
+                        } else {
+                            String[] potionDesc = new String[thePotion.length];
+                            for (int i = 0; i < thePotion.length; i++)
+                                potionDesc[i] = thePotion[i].toString();
+                            Potion selected = thePotion[view.multipleSelection(potionDesc)];
+                            int price = (int) ((float) selected.getCost() * 0.50);
+                            int confirmation = view.sellConfirmation(selected.getName(), price);
+                            if (confirmation == 1) {
+                                invController.removeFromInventory(selected);
+                                view.sold(selected.getName(), price);
+                                player.setGold(player.getGold() + price);
+                            }
+                        }
+                    } else {
+                        view.failSell(chosenToSell, "You don't have that item");
+                    }
+                }
+            }
+        } else {
+            view.failSell("anything", "Empty Inventory");
+        }
+    }
     private void enchanting() throws ShopException {
         /* Enchantments are kept seperate from the shop model. */
         Weapon chosenWeapon = invController.getWeapon();
-        view.displayStats(player.toString());
-        int response = view.getEnchantingChoice();
-        switch (response) {
-            case 0:
-                break; /* Unrecognized Enchantment */
-            case 1:
-                /* Damage +5 */
-                break;
-            case 2:
-                /* Damage +2 */
-                break;
-            case 3:
-                /* Fire Damage */
-                break;
-            case 4:
-                /* Power Up */
-                break;
-            default:
-                throw new ShopException("A Unrecognized Enchantment was returned from view.");
+        if (chosenWeapon != null) {
+            int response = view.getEnchantingChoice();
+            switch (response) {
+                case 0:
+                    break; /* Unrecognized Enchantment */
+                case 1:
+                    if (player.getGold() >= 10) {
+                        view.moneyDeducted(player.getName(), "Damage Enchantment +5", player.getGold(), 10);
+                        player.setGold(player.getGold() - 10);
+                        invController.replace(chosenWeapon, new DamageEnchantment(chosenWeapon, 5));
+                    } else {
+                        view.failEnchant("Damage Enchantment +5", "Insufficient Gold");
+                    }
+                    break;
+                case 2:
+                    if (player.getGold() >= 5) {
+                        view.moneyDeducted(player.getName(), "Damage Enchantment +2", player.getGold(), 5);
+                        player.setGold(player.getGold() - 5);
+                        invController.replace(chosenWeapon, new DamageEnchantment(chosenWeapon, 2));
+                    } else {
+                        view.failEnchant("Damage Enchantment +2", "Insufficient Gold");
+                    }
+                    break;
+                case 3:
+                    if (player.getGold() >= 20) {
+                        view.moneyDeducted(player.getName(), "Fire Enchantment", player.getGold(), 20);
+                        player.setGold(player.getGold() - 20);
+                        invController.replace(chosenWeapon, new FireEnchantment(chosenWeapon));
+                    } else {
+                        view.failEnchant("Fire Enchantment", "Insufficient Gold");
+                    }
+                    break;
+                case 4:
+                    if (player.getGold() >= 10) {
+                        view.moneyDeducted(player.getName(), "Power-Up Enchantment", player.getGold(), 10);
+                        player.setGold(player.getGold() - 10);
+                        invController.replace(chosenWeapon, new PowerUpEnchantment(chosenWeapon));
+                    } else {
+                        view.failEnchant("Power-Up Enchantment", "Insufficient Gold");
+                    }
+                    break;
+                default:
+                    throw new ShopException("A Unrecognized Enchantment was returned from view.");
+            }
         }
     }
     private void itemPurchase() throws ShopException {

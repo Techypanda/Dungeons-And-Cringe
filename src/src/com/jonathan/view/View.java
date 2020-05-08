@@ -35,4 +35,18 @@ public abstract class View { // SuperClass of views.
         }
         return selectedItem.toUpperCase();
     }
+    public int multipleSelection(String[] itemDescriptions) {
+        String promptString = "You have multiple items under that name, please select from the following by the associated number:\n";
+        int curr = 0;
+        for (String x: itemDescriptions) {
+            promptString += curr + " - " + itemDescriptions[curr] + "\n";
+            curr += 1;
+        }
+        return prompt(promptString, 0, curr-1);
+    }
+    public void outStats(String stats) {
+        System.out.println("------------- PLAYER STATS -------------");
+        System.out.println(stats);
+        System.out.println("----------------------------------------");
+    }
 }

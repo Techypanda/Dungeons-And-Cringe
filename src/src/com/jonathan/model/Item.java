@@ -19,4 +19,5 @@ public abstract class Item implements Comparable<Item> {
     public int compareTo(Item other) { /* Compare By Price. */
         return Integer.compare(getCost(), other.getCost());
     }
+    public abstract boolean equals(Object inObject);
 }

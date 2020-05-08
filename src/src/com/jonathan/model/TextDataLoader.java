@@ -16,7 +16,7 @@ public class TextDataLoader extends DataLoader {
     @Override
     public HashMap<String, Healing> loadHealingPotions() throws DataLoadException {
         HashMap<String, Healing> potions = new HashMap<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("Y:\\OOSE\\Assignment\\src\\src\\com\\jonathan\\exampleinput.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(dataSource))) {
             String currLine = br.readLine();
             while (currLine != null) {
                 String[] properties = currLine.split(",");
@@ -49,7 +49,7 @@ public class TextDataLoader extends DataLoader {
     @Override
     public HashMap<String, Damage> loadDamagePotions() throws DataLoadException {
         HashMap<String, Damage> potions = new HashMap<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("Y:\\OOSE\\Assignment\\src\\src\\com\\jonathan\\exampleinput.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(dataSource))) {
             String currLine = br.readLine();
             while (currLine != null) {
                 String[] properties = currLine.split(",");
@@ -82,7 +82,7 @@ public class TextDataLoader extends DataLoader {
     @Override
     public HashMap<String, Armour> loadArmour() throws DataLoadException {
         HashMap<String, Armour> armour = new HashMap<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("Y:\\OOSE\\Assignment\\src\\src\\com\\jonathan\\exampleinput.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(dataSource))) {
             String currLine = br.readLine();
             while (currLine != null) {
                 String[] properties = currLine.split(",");
@@ -112,7 +112,7 @@ public class TextDataLoader extends DataLoader {
     @Override
     public HashMap<String, Melee> loadWeapons() throws DataLoadException {
         HashMap<String, Melee> weapons = new HashMap<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("Y:\\OOSE\\Assignment\\src\\src\\com\\jonathan\\exampleinput.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(dataSource))) {
             String currLine = br.readLine();
             while (currLine != null) {
                 String[] properties = currLine.split(",");
