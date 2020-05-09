@@ -10,15 +10,17 @@ public class ShopController {
     private ShopViewer view;
     private Player player;
     private InventoryController invController;
-    public ShopController(Shop inShop, ShopViewer inView, Player thePlayer, InventoryController invController) {
+    private DataLoader loader;
+    public ShopController(Shop inShop, ShopViewer inView, Player thePlayer, InventoryController invController, DataLoader loader) {
         shop = inShop;
         view = inView;
         player = thePlayer;
         this.invController = invController;
+        this.loader = loader;
     }
     public void beginShop() throws ShopException {
         try {
-            shop.updateShop(DataLoader.getLoader("Y:\\OOSE\\Assignment\\src\\src\\com\\jonathan\\exampleinput.csv"));
+            shop.updateShop(loader);
         } catch (DataLoadException e) {
             throw new ShopException(
                     String.format("Shop Was Unable to be loaded from input file via dataloader, here are the details: %s",
@@ -44,7 +46,7 @@ public class ShopController {
         }
     }
     private void sell() {
-        if (invController.isEmpty() != true) {
+        if (!invController.isEmpty()) {
             String chosenToSell = view.sellPrompt(player.showWeapons() + player.showArmour() + player.showPotions());
             Weapon[] theWeapon = player.getWeapon(chosenToSell);
             if (theWeapon.length >= 1) {

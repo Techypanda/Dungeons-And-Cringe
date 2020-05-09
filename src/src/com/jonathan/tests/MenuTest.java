@@ -4,6 +4,7 @@ import com.jonathan.controller.BattleController;
 import com.jonathan.controller.InventoryController;
 import com.jonathan.controller.MenuController;
 import com.jonathan.controller.ShopController;
+import com.jonathan.model.DataLoader;
 import com.jonathan.model.Player;
 import com.jonathan.model.Shop;
 import com.jonathan.view.BattleViewer;
@@ -19,10 +20,11 @@ public class MenuTest {
         InventoryViewer invView = new InventoryViewer();
         BattleViewer battleView = new BattleViewer();
         InventoryController invController = new InventoryController(player, invView);
+        DataLoader loader = DataLoader.getLoader("Y:\\OOSE\\Assignment\\src\\src\\com\\jonathan\\exampleinput.txt");
         MenuController menu = new MenuController(new MenuView(),
                 invController,
                 new BattleController(player, battleView, invController),
-                new ShopController(shop, shopView, player, invController),
+                new ShopController(shop, shopView, player, invController, loader),
                 player);
         try {
             menu.beginMenu();

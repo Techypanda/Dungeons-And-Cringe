@@ -23,7 +23,6 @@ public class ItemTestHarness {
         System.out.println(crescentRose.toString());
         p.equip(crescentRose);
         System.out.println(p.toString());
-
         /* INVENTORY TESTS */
         Potion firstItem = new Healing("Potion Of Health", 4, 4, 4);
     }

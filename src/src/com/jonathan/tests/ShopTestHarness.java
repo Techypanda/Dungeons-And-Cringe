@@ -19,7 +19,8 @@ public class ShopTestHarness {
             ShopViewer shopView = new ShopViewer();
             InventoryViewer invView = new InventoryViewer();
             InventoryController invController = new InventoryController(player, invView);
-            ShopController shopController = new ShopController(shop, shopView, player, invController);
+            DataLoader loader = DataLoader.getLoader("Y:\\OOSE\\Assignment\\src\\src\\com\\jonathan\\exampleinput.txt");
+            ShopController shopController = new ShopController(shop, shopView, player, invController, loader);
             shopController.beginShop();
         } catch (ShopException e) {
             System.out.println(e.getMessage());

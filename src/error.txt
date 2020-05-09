@@ -1,0 +1,16 @@
+
+------------ ERROR OCCURED DATE: 2020/05/09,17:42:16 ------------
+Details: com.jonathan.exceptions.ShopException: This is a test.
+Cause: com.jonathan.exceptions.ShopException: This is a test.
+Stack Trace: com.jonathan.exceptions.MenuException: com.jonathan.exceptions.ShopException: This is a test.
+----------------------------------------------------------------------------------------------
+------------ ERROR OCCURED DATE: 2020/05/09,17:42:28 ------------
+Details: com.jonathan.exceptions.ShopException: This is a test.
+Cause: com.jonathan.exceptions.ShopException: This is a test.
+Stack Trace: com.jonathan.exceptions.MenuException: com.jonathan.exceptions.ShopException: This is a test.
+----------------------------------------------------------------------------------------------
+------------ ERROR OCCURED DATE: 2020/05/09,17:43:49 ------------
+Details: com.jonathan.exceptions.ShopException: This is a test.
+Cause: com.jonathan.exceptions.ShopException: This is a test.
+Stack Trace: com.jonathan.exceptions.MenuException: com.jonathan.exceptions.ShopException: This is a test.
+----------------------------------------------------------------------------------------------
