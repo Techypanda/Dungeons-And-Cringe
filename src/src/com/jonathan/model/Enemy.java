@@ -26,8 +26,9 @@ public abstract class Enemy extends Character {
         int armourVal = rand.nextInt((defence[1] - defence[0]) + 1) + defence[0];
         int damageTaken = Math.max(0, inDmg - armourVal);
         currHP = currHP - damageTaken;
-        if (currHP < 0)
+        if (currHP < 0) {
             currHP = 0; /* Cant go negative, you are already dead. */
+        }
         return damageTaken;
     }
     @Override

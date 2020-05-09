@@ -30,8 +30,9 @@ public class BattleViewer extends View implements BattleObserver {
     public void updateBattle() {
         System.out.println(battle.getBattleDetails());
         if (battle.getWinner() != null) {
-            Character winner = battle.getWinner();
-            System.out.printf("%s has won the battle and has taken the loser's gold of: %d!%n", winner.getName(), battle.getReward());
+            String winnerName = battle.getWinner().getName();
+            int battleReward = battle.getLoser().getGold();
+            System.out.printf("%s has won the battle and has taken the loser's gold of: %d!%n", winnerName, battleReward);
         }
     }
     public void announceBattle(String characterOne, String characterTwo) {

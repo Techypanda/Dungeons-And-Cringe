@@ -140,7 +140,7 @@ public class ShopController {
                     if (player.getGold() >= 10) {
                         view.moneyDeducted(player.getName(), "Damage Enchantment +5", player.getGold(), 10);
                         player.setGold(player.getGold() - 10);
-                        invController.replace(chosenWeapon, new DamageEnchantment(chosenWeapon, 5));
+                        player.replaceWeapon(chosenWeapon, new DamageEnchantment(chosenWeapon, 5));
                     } else {
                         view.failEnchant("Damage Enchantment +5", "Insufficient Gold");
                     }
@@ -149,7 +149,7 @@ public class ShopController {
                     if (player.getGold() >= 5) {
                         view.moneyDeducted(player.getName(), "Damage Enchantment +2", player.getGold(), 5);
                         player.setGold(player.getGold() - 5);
-                        invController.replace(chosenWeapon, new DamageEnchantment(chosenWeapon, 2));
+                        player.replaceWeapon(chosenWeapon, new DamageEnchantment(chosenWeapon, 2));
                     } else {
                         view.failEnchant("Damage Enchantment +2", "Insufficient Gold");
                     }
@@ -158,7 +158,7 @@ public class ShopController {
                     if (player.getGold() >= 20) {
                         view.moneyDeducted(player.getName(), "Fire Enchantment", player.getGold(), 20);
                         player.setGold(player.getGold() - 20);
-                        invController.replace(chosenWeapon, new FireEnchantment(chosenWeapon));
+                        player.replaceWeapon(chosenWeapon, new FireEnchantment(chosenWeapon));
                     } else {
                         view.failEnchant("Fire Enchantment", "Insufficient Gold");
                     }
@@ -167,7 +167,7 @@ public class ShopController {
                     if (player.getGold() >= 10) {
                         view.moneyDeducted(player.getName(), "Power-Up Enchantment", player.getGold(), 10);
                         player.setGold(player.getGold() - 10);
-                        invController.replace(chosenWeapon, new PowerUpEnchantment(chosenWeapon));
+                        player.replaceWeapon(chosenWeapon, new PowerUpEnchantment(chosenWeapon));
                     } else {
                         view.failEnchant("Power-Up Enchantment", "Insufficient Gold");
                     }

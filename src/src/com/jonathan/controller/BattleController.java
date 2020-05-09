@@ -65,7 +65,11 @@ public class BattleController {
         }
         probabilities[3] += dragonInc;
     }
+    private void outProbabilties() {
+        System.out.printf("Slime: %f\nGoblin: %f\nOgre: %f\nDragon: %f\n", probabilities[0], probabilities[1], probabilities[2], probabilities[3]);
+    }
     public void beginBattle() {
+        outProbabilties();
         Random rand = new Random();
         Character enemy = generateEnemy();
         Battle battle = new Battle(player, enemy);
@@ -132,5 +136,6 @@ public class BattleController {
             }
         }
         adjustProbabilities();
+        player.setGold(player.getGold() + battle.getLoser().getGold());
     }
 }

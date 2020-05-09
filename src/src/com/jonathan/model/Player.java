@@ -31,7 +31,7 @@ public class Player extends Character {
     }
     @Override
     public int getDamage() {
-        int dmgVal = weapon.getEffect(); // MODIFIER NEEDS TO BE ADDED
+        int dmgVal = weapon.getEffect();
         return dmgVal;
     }
     @Override
@@ -72,25 +72,38 @@ public class Player extends Character {
         return invCollection(weapons.toArray(new Weapon[0]));
     }
     public Weapon removeWeapon(Weapon inWeapon) {
-        if (weapons.remove(inWeapon))
+        if (weapons.remove(inWeapon)) {
+            if (weapon.equals(inWeapon)) {
+                weapon = new Melee("No Weapon", 0, 0, 0, "Fists");
+            }
             return inWeapon;
-        else
-            return null;
+        }
+        return null;
     }
     public Armour removeArmour(Armour inArmour) {
-        if (armours.remove(inArmour))
+        if (armours.remove(inArmour)) {
+            if (inArmour.equals(armour)) {
+                armour = new Armour("No Armour", 0, 0, 0, "Bare Skin");
+            }
             return inArmour;
-        else
-            return null;
+        }
+        return null;
     }
     public boolean hasPotions() {
         return (healingPotions.size() != 0) || (damagePotions.size() != 0);
     }
     public Potion removePotion(Potion p) {
-        if (damagePotions.remove(p) || healingPotions.remove(p))
+        if (damagePotions.remove(p) || healingPotions.remove(p)) {
             return p;
-        else
-            return null;
+        }
+        return null;
+    }
+    public void replaceWeapon(Weapon oldWeapon, Weapon newWeapon) {
+        weapons.remove(oldWeapon);
+        if (weapon.equals(oldWeapon)) {
+            weapon = newWeapon;
+        }
+        weapons.add(newWeapon);
     }
     public Weapon[] getWeapon(String inWeaponTitle) {
         ArrayList<Weapon> weaponList = new ArrayList<>();

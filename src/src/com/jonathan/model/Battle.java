@@ -9,9 +9,13 @@ public class Battle { /* Observer Pattern used. */
     private Set<BattleObserver> obs;
     private String battleDetails;
     private Character winner;
+    private Character loser;
     private int turn;
     public Character getWinner() {
         return winner;
+    }
+    public Character getLoser() {
+        return loser;
     }
     public int getReward() {
         return winner.getGold();
@@ -73,10 +77,13 @@ public class Battle { /* Observer Pattern used. */
         }
     }
     private void checkWin() {
-        if (characterOne.getHP() <= 0)
+        if (characterOne.getHP() <= 0) {
             winner = characterTwo;
+            loser = characterOne;
+        }
         if (characterTwo.getHP() <= 0) {
             winner = characterOne;
+            loser = characterTwo;
             characterOne.battleHeal();
         }
     }

@@ -135,8 +135,4 @@ public class InventoryController {
         }
         return null;
     }
-    public void replace(Weapon weaponToReplace, Weapon replacementWeapon) {
-        player.removeWeapon(weaponToReplace);
-        player.addItem(replacementWeapon);
-    }
 }
