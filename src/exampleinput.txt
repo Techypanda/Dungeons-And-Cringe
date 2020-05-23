@@ -7,3 +7,4 @@ A, Dragon Skin, 20, 30, 80, Dragon Scale
 P, Potion of Healing, 5, 10, 12, H
 P, Potion of Greater Healing, 15, 20, 20, H
 P, Explosive Potion, 20, 20, 20, D
+W, Dev Sword, 999, 9999, 1, overpowered as heck, Sword

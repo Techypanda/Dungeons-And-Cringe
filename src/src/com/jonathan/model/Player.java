@@ -11,8 +11,8 @@ public class Player extends Character {
     private List<Armour> armours;
     private List<Damage> damagePotions;
     private List<Healing> healingPotions;
-    private Weapon weapon; /* For Enchantments. */
-    private Armour armour; /* For Enchantments. */
+    private Weapon weapon;
+    private Armour armour;
     public Player() {
         super("The Player", 30, 100);
         weapon = new Melee("No Weapon", 0, 0, 0, "Fists");
@@ -188,5 +188,4 @@ public class Player extends Character {
         }
         return outItems;
     }
-
 }

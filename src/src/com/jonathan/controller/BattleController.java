@@ -136,6 +136,6 @@ public class BattleController {
             }
         }
         adjustProbabilities();
-        player.setGold(player.getGold() + battle.getLoser().getGold());
+        player.setGold(player.getGold() + battle.getReward());
     }
 }

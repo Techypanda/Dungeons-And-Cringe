@@ -3,6 +3,11 @@ package com.jonathan.model;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Purpose: To represent the data around a battle.
+ * Author: Jonathan Wright
+ * Date: 23/05/2020
+ */
 public class Battle { /* Observer Pattern used. */
     private Character characterOne;
     private Character characterTwo;
@@ -11,14 +16,30 @@ public class Battle { /* Observer Pattern used. */
     private Character winner;
     private Character loser;
     private int turn;
+
+    /**
+     * Returns the winner of the battle.
+     * @return winner if there is one else it returns null (NULLABLE)
+     */
     public Character getWinner() {
         return winner;
     }
+
+    /**
+     * Returns the loser of the battle.
+     * @return loser if there is one else it returns null (NULLABLE)
+     */
     public Character getLoser() {
         return loser;
     }
+
+    /**
+     * Returns reward of battle, implemented here as if two players are in battle then the winner should take all the
+     * losers gold.
+     * @return the gold of the winner
+     */
     public int getReward() {
-        return winner.getGold();
+        return loser.getGold();
     }
     public void addObserver(BattleObserver ob) {
         obs.add(ob);
