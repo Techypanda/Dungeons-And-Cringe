@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ae6ba573-a637-4d1e-905a-0a06ed113cf6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/jonathan/controller/MenuController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/jonathan/exceptions/MenuException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/jonathan/tests/MenuTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/jonathan/view/MenuView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/src/META-INF/src.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/src/META-INF/src.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/jonathan/controller/BattleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jonathan/controller/BattleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/jonathan/controller/InventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jonathan/controller/InventoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/jonathan/controller/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jonathan/controller/ShopController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/jonathan/model/Armour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jonathan/model/Armour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/jonathan/model/Damage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jonathan/model/Damage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/jonathan/model/DamageEnchantment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jonathan/model/DamageEnchantment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/jonathan/model/Enchantment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jonathan/model/Enchantment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/jonathan/model/FireEnchantment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jonathan/model/FireEnchantment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/jonathan/model/Healing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jonathan/model/Healing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/jonathan/model/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jonathan/model/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/jonathan/model/Melee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jonathan/model/Melee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/jonathan/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jonathan/model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/jonathan/model/Potion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jonathan/model/Potion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/jonathan/model/PowerUpEnchantment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jonathan/model/PowerUpEnchantment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/jonathan/model/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jonathan/model/Shop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/jonathan/model/TextDataLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jonathan/model/TextDataLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/jonathan/model/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jonathan/model/Weapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/jonathan/tests/BattleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jonathan/tests/BattleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/jonathan/tests/CharacterTestHarness.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jonathan/tests/CharacterTestHarness.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/jonathan/view/BattleViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jonathan/view/BattleViewer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/jonathan/view/InventoryViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jonathan/view/InventoryViewer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/jonathan/view/ShopViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jonathan/view/ShopViewer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/jonathan/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/jonathan/view/View.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1bHYxCAWTYdM1Shy5lhptsHC5Hy" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RunManager" selected="Application.Menu Test Harness">
+    <configuration name="Character Test Harness" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.jonathan.tests.CharacterTestHarness" />
+      <module name="src" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Enchantment Test Harness" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.jonathan.tests.EnchantmentTestHarness" />
+      <module name="src" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Item Test Harness" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.jonathan.tests.ItemTestHarness" />
+      <module name="src" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Menu Test Harness" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.jonathan.tests.MenuTest" />
+      <module name="src" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Shop Test Harness" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.jonathan.tests.ShopTestHarness" />
+      <module name="src" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.jonathan.controller.ItemTestHarness" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Menu Test Harness" />
+      <item itemvalue="Application.Character Test Harness" />
+      <item itemvalue="Application.Enchantment Test Harness" />
+      <item itemvalue="Application.Item Test Harness" />
+      <item itemvalue="Application.Shop Test Harness" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ae6ba573-a637-4d1e-905a-0a06ed113cf6" name="Default Changelist" comment="" />
+      <created>1588290729366</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588290729366</updated>
+      <workItem from="1588290730751" duration="16954000" />
+      <workItem from="1588904246656" duration="18763000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="206" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588917323903">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="206" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1500.960@0.0.1500.960" timestamp="1588917323903" />
+    <state x="556" y="186" key="#com.intellij.ide.util.MemberChooser" timestamp="1588307822672">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="556" y="186" key="#com.intellij.ide.util.MemberChooser/0.0.1500.960@0.0.1500.960" timestamp="1588307822672" />
+    <state x="481" y="227" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588303454217">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="481" y="227" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1500.960@0.0.1500.960" timestamp="1588303454217" />
+    <state width="1458" height="316" key="GridCell.Tab.0.bottom" timestamp="1588923411863">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state width="1458" height="316" key="GridCell.Tab.0.bottom/0.0.1500.960@0.0.1500.960" timestamp="1588923411863" />
+    <state width="1458" height="316" key="GridCell.Tab.0.center" timestamp="1588923411863">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state width="1458" height="316" key="GridCell.Tab.0.center/0.0.1500.960@0.0.1500.960" timestamp="1588923411863" />
+    <state width="1458" height="316" key="GridCell.Tab.0.left" timestamp="1588923411863">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state width="1458" height="316" key="GridCell.Tab.0.left/0.0.1500.960@0.0.1500.960" timestamp="1588923411863" />
+    <state width="1458" height="316" key="GridCell.Tab.0.right" timestamp="1588923411863">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state width="1458" height="316" key="GridCell.Tab.0.right/0.0.1500.960@0.0.1500.960" timestamp="1588923411863" />
+    <state width="1458" height="316" key="GridCell.Tab.1.bottom" timestamp="1588923422192">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state width="1458" height="316" key="GridCell.Tab.1.bottom/0.0.1500.960@0.0.1500.960" timestamp="1588923422192" />
+    <state width="1458" height="316" key="GridCell.Tab.1.center" timestamp="1588923422192">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state width="1458" height="316" key="GridCell.Tab.1.center/0.0.1500.960@0.0.1500.960" timestamp="1588923422192" />
+    <state width="1458" height="316" key="GridCell.Tab.1.left" timestamp="1588923422192">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state width="1458" height="316" key="GridCell.Tab.1.left/0.0.1500.960@0.0.1500.960" timestamp="1588923422192" />
+    <state width="1458" height="316" key="GridCell.Tab.1.right" timestamp="1588923422192">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state width="1458" height="316" key="GridCell.Tab.1.right/0.0.1500.960@0.0.1500.960" timestamp="1588923422192" />
+    <state x="481" y="241" key="extract.method.dialog" timestamp="1588913575303">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="481" y="241" key="extract.method.dialog/0.0.1500.960@0.0.1500.960" timestamp="1588913575303" />
+    <state x="410" y="223" key="run.anything.popup" timestamp="1588915387959">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="410" y="223" key="run.anything.popup/0.0.1500.960@0.0.1500.960" timestamp="1588915387959" />
+    <state x="417" y="210" width="672" height="678" key="search.everywhere.popup" timestamp="1588922332477">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="417" y="210" width="672" height="678" key="search.everywhere.popup/0.0.1500.960@0.0.1500.960" timestamp="1588922332477" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/jonathan/exceptions/ShopException.java</url>
+          <line>7</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/jonathan/controller/BattleController.java</url>
+          <line>91</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/jonathan/controller/BattleController.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/jonathan/controller/BattleController.java</url>
+          <line>77</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/jonathan/controller/BattleController.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/com/jonathan/model/Player.java</url>
+          <line>68</line>
+          <properties class="com.jonathan.model.Player" method="addItem">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="player" language="JAVA" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>
