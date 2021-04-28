@@ -1,3 +1,6 @@
+Dungeons & Cringe - A Object Oriented Approach
+Java Application written for my Object Oriented Software Engineering unit in Curtin University
+
 README - OOSE Assignment 2020
 
 WHAT IS IT?: An assignment about using various design patterns to make a game using language of choice (I chose Java)
